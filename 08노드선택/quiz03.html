@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        input {
+            outline: none;
+        }
+    </style>
+
+</head>
+<body>
+
+    <!-- 아이디는 4글자 이상, 비밀번호는 9글자 이상이면 초록색 3글자, 8글자 이하면 빨간색 -->
+    <p>아이디나 비밀번호가 변경될때 마다 다음을 구현하세요</p>
+    <p>힌트: 이벤트 input or change</p>
+
+    <p>아이디
+        <input type="text" id="id" style="border: 2px solid #777;">
+    </p>
+    <p id="idmsg" style="visibility: hidden;">4글자 이상으로 입력해주세요.</p>
+    <p>비밀번호
+        <input type="text" id="pw" style="border: 2px solid #777;">
+    <p id="pwmsg" style="visibility: hidden;">9글자 이상으로 입력해주세요.</p>
+
+    <script>
+        let id = document.getElementById("id");
+        let pw = document.getElementById("pw");
+        let idmsg = document.getElementById("idmsg");
+        let pwmsg = document.getElementById("pwmsg");
+
+        id.oninput = function() {
+            if(id.value.length >= 4) {
+                idmsg.style.visibility = "hidden"
+                id.style.borderColor = "green";
+            } else if(id.value.length < 4) {
+                idmsg.style.visibility = "visible";
+                id.style.borderColor = "red";
+            }
+        }
+        pw.oninput = function() {
+            if(pw.value.length >= 9) {
+                pwmsg.style.visibility = "hidden"
+                pw.style.borderColor = "green";
+            } else if(pw.value.length < 9) {
+                pwmsg.style.visibility = "visible";
+                pw.style.borderColor = "red";
+            }
+        }
+
+    </script>
+
+    <hr>
+
+    <!-- 선생님 풀이 -->
+    <form action="#">
+        <label>아이디</label>
+        <input type="text" name="id2" id="id2"><br>
+        <span class="id2Error"></span><br>
+    </form>
+    <form action="#">
+        <label>비밀번호</label>
+        <input type="password" name="pw2" id="pw2"><br>
+        <span class="pw2Error"></span><br>
+    </form>
+
+    <script>
+        let id2 = document.getElementById("id2");
+        let id2Error = document.querySelector(".id2Error");
+        let pw2 = document.getElementById("pw2");
+        let pw2Error = document.querySelector(".pw2Error");
+
+        id2.oninput = function() {
+            if(id2.value.length < 4) {
+                id2.style.border = "3px solid red";
+                id2Error.textContent = "아이디는 4글자 이상입니다."
+            } else {
+                id2.style.border = "3px solid red";
+                id2Error.textContent = " "
+            }
+        }
+        pw2.oninput = function() {
+            if(pw2.value.length < 9) {
+                pw2.style.border = "3px solid red";
+                pw2Error.textContent = "비밀번호는 9글자 이상입니다."
+            } else {
+                pw2.style.border = "3px solid red";
+                pw2Error.textContent = " "
+            }
+        }
+    </script>
+    
+</body>
+</html>

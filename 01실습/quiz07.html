@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+
+        // 구구단을 입력받아, 입력받은 구구단을 출력해주세요.
+
+        
+        let x = parseInt(prompt("출력할 구구단의 단수를 입력해주세요. 2 ~ 9"));
+        let y = 1;
+
+        document.write("<h3>", x, "단", "</h3>");
+        
+        if( x >= 2 && x <= 9) {
+            while(y <= 9) {
+                let z = x * y;
+                // document.write(x, " x ", y, " = ", z, "<br>");
+                // 빽틱 - ES6에서 새로 나온 문법
+                document.write(`${x} x ${y} = ${z}<br>`)
+                y++
+            }
+        }
+        else {
+            document.write("맞는 값을 입력하세요.")
+        }
+
+
+    </script>
+    
+</body>
+</html>

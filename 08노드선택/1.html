@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>input vs change 완전 비교</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    input { width: 300px; padding: 8px; margin-bottom: 20px; display: block; }
+    .log { background: #f8f8f8; border: 1px solid #ccc; padding: 10px; height: 200px; overflow-y: auto; white-space: pre-wrap; font-size: 14px; }
+    .log strong { color: #333; }
+  </style>
+</head>
+<body>
+  <h2>🔍 input vs change 이벤트 비교 (동시 출력)</h2>
+
+  <label for="textInput">🧪 텍스트 입력:</label>
+  <input type="text" id="textInput" placeholder="입력하고 테스트해보세요">
+
+  <div class="log" id="logBox">[이벤트 로그 출력]</div>
+
+  <script>
+    const inputEl = document.getElementById("textInput");
+    const logBox = document.getElementById("logBox");
+
+    function log(eventType, value) {
+      const time = new Date().toLocaleTimeString();
+      const line = `[${time}] ${eventType} 이벤트: "${value}"`;
+      logBox.textContent += line + "\n";
+      logBox.scrollTop = logBox.scrollHeight;
+    }
+
+    // input 이벤트: 입력될 때마다 발생
+    inputEl.addEventListener("input", (e) => {
+      log("input", e.target.value);
+    });
+
+    // change 이벤트: 입력 후 포커스 이동 또는 엔터 시 발생
+    inputEl.addEventListener("change", (e) => {
+      log("change", e.target.value);
+    });
+  </script>
+</body>
+</html>

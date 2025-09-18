@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <button type="button" id="btn">인터벌 중단</button>
+
+    <script>
+        let count = 0;
+        let stop = setInterval(function() {
+            count++
+            console.log(count);
+        }, 1000);
+
+        let btn = document.getElementById("btn");
+        btn.onclick = function() {
+            clearInterval(stop);
+        }
+
+        // 타임 아웃
+        let stop2 = setTimeout(function() {
+            alert("5초뒤에 딱 한번 실행됨.");
+        }, 5000);
+
+        clearTimeout(stop2); // 중단 됨.
+    </script>
+    
+</body>
+</html>

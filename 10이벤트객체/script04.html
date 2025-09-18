@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h3>기본 이벤트 중단</h3>
+    
+    <ul class="box">
+        <li><a href="xxxx.html">메뉴1</a></li>
+        <li><a href="xxxx.html">메뉴2</a></li>
+        <li><a href="xxxx.html">메뉴3</a></li>
+        <li><a href="xxxx.html">메뉴4</a></li>
+        <li><a href="xxxx.html">메뉴5</a></li>
+    </ul>
+
+    <script>
+        let box = document.querySelector(".box");
+        box.onclick = function(e) {
+            e.preventDefault(); // 태그가 가지고 있는 기본 이벤트를 중단. 여기서는 xxxx.html로의 이동을 막음.
+            console.log(e.target.innerHTML); // a태그의 innerHTML값
+
+            // 끝나면 강제로 이동시키는 키워드 발생시키면 됨
+        }
+    </script>
+
+</body>
+</html>

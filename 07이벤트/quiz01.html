@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h3>이벤트 실습</h3>
+
+    <h3>셀렉트 태그의 주요 이벤트는 change</h3>
+    <select onchange="choose(this);">
+        <option>사과</option>
+        <option>멜론</option>
+        <option>오렌지</option>
+    </select>
+
+    <h3>인풋 태그의 주요 이벤트는 input, focus, blur</h3>
+    <input type="text" id="word">
+
+
+    <h3>마우스이벤트 mouseenter, mouseleave</h3>
+    <div id="mouse" style="width: 100px; height: 100px; border: 1px solid #777;">
+
+    </div>
+
+    <script>
+        // 각 태그의 이벤트를 걸어서 console창으로 동작을 확인
+        // 1. select 태그는 인라인 이벤트
+        function choose(param) {
+            console.log("인라인 이벤트");      
+        }
+
+        // 2. 인풋태그는 기본 이벤트
+        let textBox = document.getElementById("word");
+        textBox.oninput = function() {
+            console.log("인풋 이벤트");
+        }
+        textBox.onfocus = function() {
+            console.log("포커스 이벤트");
+        }
+        textBox.onblur = function() {
+            console.log("블러 이벤트");
+        }
+
+
+        // 3. div는 표준 이벤트
+        let box = document.getElementById("mouse");
+        box.addEventListener("mouseenter", () => {
+            console.log("마우스 엔터");
+        });
+        box.addEventListener("mouseleave", () => {
+            console.log("마우스 리브");
+        });
+
+
+    </script>
+    
+</body>
+</html>

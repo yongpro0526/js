@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h3>자바스크립트 카운트 (value 속성을 이용해서 카운트 처리하세요)</h3>
+
+    <input type="number" value="0" id="num">
+    <button type="button" id="plus" style="width: 25px;">+</button>
+    <button type="button" id="minus" style="width: 25px;">-</button>
+    
+    <script>
+        let box = document.getElementById("num");
+        let p = document.getElementById("plus");
+        let m = document.getElementById("minus");
+
+        p.onclick = function() {
+            box.value = ++box.value;
+        }
+
+        m.onclick = function() {
+            box.value = --box.value;
+            if(box.value < 0) {
+                alert(`0보다 작으면 안 됨.`);
+                box.value = ++box.value;
+            }
+        }
+
+        // p.addEventListener("click", function() {
+        //     box.value = ++box.value;
+        // });
+
+        // m.addEventListener("click", function() {
+        //     box.value = --box.value;
+        //     if(box.value < 0) {
+        //         alert(`0보다 작으면 안 됨.`);
+        //         box.value = ++box.value;
+        //     }
+        // });
+    </script>
+
+    <hr>
+
+    <!-- 선생님 풀이 -->
+
+    <h3>자바스크립트 카운트 (value 속성을 이용해서 카운트 처리하세요)</h3>
+
+    <input type="number" id="cnt" value="0">
+    <button type="button" class="plus">+</button>
+    <button type="button" class="minus">-</button>
+
+    <script>
+        let cnt = document.getElementById("cnt");
+        let plus = document.querySelector(".plus");
+        let minus = document.querySelector(".minus");
+
+        plus.onclick = function() {
+            cnt.value++;
+        }
+
+        minus.onclick = function() {
+            if(cnt.value <= 0) {
+                alert("수량은 0보다 작을 수 없습니다.");
+                return false; // 함수의 종료
+            }
+            cnt.value--;
+        }
+
+
+    </script>
+    
+</body>
+</html>

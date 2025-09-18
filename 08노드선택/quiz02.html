@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <p>1. 예약버튼 클릭 시 좌석이 최소 한개 이상 체크되어있지 않다면 경고창을 띄우는 코드</p>
+    <p>채크된 값은 예약 확인란에 출력해주세요.</p>
+    <p>힌트 - 버튼 클릭 시 배열에 값을</p>
+
+    <span>좌석: </span>
+    <input type="checkbox" name="seat" value="1">1
+    <input type="checkbox" name="seat" value="2">2
+    <input type="checkbox" name="seat" value="3">3
+    <input type="checkbox" name="seat" value="4">4
+    <input type="checkbox" name="seat" value="5">5
+    <input type="checkbox" name="seat" value="6">6
+    <input type="checkbox" name="seat" value="7">7
+    <input type="checkbox" name="seat" value="8">8
+    <input type="checkbox" name="seat" value="9">9
+    <br>
+    <button type="button" id="btn">예약하기</button>
+
+    <p>예약 번호: 
+        <div class="result"></div>
+    </p>
+    
+    <script>
+        let btn = document.getElementById("btn");
+        let result = document.querySelector(".result");
+        let seat = document.querySelectorAll("input[name=seat]");
+
+        // btn.addEventListener("click", function() {
+        //     // 1. 체크된 좌석을 저장할 수 있는 배열[] 생성
+        //     // 2. 반복문을 이용해서 체크여부를 확인하고, 체크되어있으면, 배열에 추가
+        //     // 3. 반복문을 다 돌고 나와서, 체크가 되어있었다면, result 태그에 innerHTML
+
+        //     let reserve = [];
+        //     for(let i = 0; i <= seat.length; i++) {
+        //         if(seat[i].checked) {
+        //             reserve.push(seat[i].vlaue);
+        //         }
+        //     }
+        //     if(reserve.length === 0) {// 체크가 하나도 안 되어 있을 때 == reserve값이 하나도 없을 때
+        //         alert(`좌석을 하나 이상 선택헤주세요.`);
+        //         return false;
+        //     } else {
+        //     result.innerHTML = "<p></p>"
+        //     });
+
+        // 선생님 풀이
+        btn.addEventListener("click", function() {
+            // 1. 체크된 좌석을 저장할 수 있는 배열[] 생성
+            // 2. 반복문을 이용해서 체크여부를 확인하고, 체크되어있으면, 배열에 추가
+            // 3. 반복문을 다 돌고 나와서, 체크가 되어있었다면, result 태그에 innerHTML
+
+            let arr = [];
+            for(let i = 0; i < seat.length; i++) {
+                if(seat[i].checked) {
+                    arr.push(seat[i].value); // 체크되어 있으면, arr에 value값을 추가
+                }
+            }
+                if(arr.length === 0) {
+                    alert("좌석을 필수로 체크해야 합니다.");
+                } else {
+                    result.innerHTML = arr;
+                }
+        });
+            
+
+    </script>
+    
+</body>
+</html>

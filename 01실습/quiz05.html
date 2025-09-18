@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+
+        // 수를 하나 입력 받습니다.
+        // 이 수가 짝수인지, 홀수인지, 음수인지 구분해서 출력하는 프로그램 코드를 작성해보세요.
+        
+        let x = parseInt(prompt("숫자를 입력하세요."));
+
+        if( x > 0 ) {
+            if( x % 2 === 0) {
+                document.write("짝수");
+            }
+            else {
+                document.write("홀수");
+            }
+        } 
+        else if( x < 0) {
+            document.write("음수");
+        }
+        else if( x === 0) {
+            document.write("0");
+        }
+        
+    </script>
+    
+</body>
+</html>

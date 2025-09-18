@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .red-btn {
+            border: none;
+            background-color: red;
+            color: white;
+        }
+    </style>
+
+</head>
+<body>
+
+    <h1>할일 목록 만들기</h1>
+
+    <form>
+        <h3 id="hello"></h3>
+        <input type="text" id="name" placeholder="이름을 입력하세요">
+        <button id="nameBtn" type="button">확인</button>
+    </form>
+    <form>
+        <input type="text" id="todo" placeholder="당신의 할 일을 적으세요">
+        <button id="todoBtn" type="button">확인</button>
+    </form>
+    <ul id="list">
+
+    </ul>
+
+    <script>
+        let hello = document.getElementById("hello"); // nemeTitle
+        let name = document.getElementById("name");
+        let nameBtn = document.getElementById("nameBtn");
+
+        nameBtn.addEventListener("click", function() {
+            hello.innerHTML = name.value + "님 안녕하세요";
+            name.style.display = "none";
+            nameBtn.style.display = "none";
+        });
+
+        let todo = document.getElementById("todo");
+        let todoBtn = document.getElementById("todoBtn");
+        let list = document.getElementById("list")
+
+        todoBtn.addEventListener("click", function() {
+            // let li = document.createElement("li");
+            // li.textContent = todo.value;
+            // list.appendChild(li);
+            // todo.value = "";
+            
+            // 선생님풀이
+            let text = todo.value;
+            todo.value = "";
+            let li = document.createElement("li");
+            li.innerHTML = text;
+            let button = document.createElement("button");
+            button.innerHTML = "X더블클릭";
+            button.className = "red-btn";
+            // li의 자식으로 button추가
+            li.appendChild(button);
+            list.appendChild(li);
+        });
+
+    </script>
+    
+</body>
+</html>

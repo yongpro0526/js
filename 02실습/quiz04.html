@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+
+        // 1단계: 층수 입력
+
+        let floorCount = parseInt(prompt("층수를 입력하세요."));
+
+        let floor = [];
+        for(let i = 0; i < floorCount; i++) {
+            floor[i] = [];
+        }
+        console.log(floor);
+
+        // 2단계: 각 층에 사람 배정
+        // TODO: 각 층에 사람의 이름을 입력받아 저장하세요
+        // 1. while문을 사용하여 반복 입력받기
+        // 2. 층수와 이름을 입력박아 해당 층에 저장
+        // 3. "그만"을 입력하는 반복ㄱ 종ㄹㄹ
+        // 결과:
+        // 1층: 김철수
+        // 2층: 이영희, 홍길동
+        // 3층: 비어있음
+
+
+        while(true) {
+            let a = parseInt(prompt("층수 입력>"));
+            let name = prompt("배정할 이름을 입력하세요>");
+
+            // 그만을 입력하면 종료
+            if(name === "그만") {
+                break;
+            }
+
+            // 층수를 잘못 입력한 경우
+            if(a > floorCount || a <= 0) {
+                alert(`1~${floor} 사이의 층수를 입력하세요.`)
+                continue;
+            }
+            // 사용자가 5층을 입력하면 실제로 들어가는 인덱스 번호는 4
+            floor[a-1].push(name);
+        }
+
+        // 반복문을 통해서 사용자를 출력
+        for(let i = 0; i < floor.length; i++) {
+                let str = `${i+1}층: `;
+                if(floor[i].lenth === 0) {
+                    str += "비어있음"
+                }
+                for(let j = 0; j < floor[i].lenth; j++) {
+                    str += `${floor[i][j]}`;
+                    if(floor[i].length - 1 === j) {
+                        break;
+                    } // 마지막에는 ,가 안 나오게 하는법
+                    str +=`, `;
+                }
+
+
+            document.write(str + "<br>");
+        }
+
+
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .red-btn {
+            border: none;
+            background-color: red;
+            color: white;
+        }
+    </style>
+
+</head>
+<body>
+
+    <h1>할일 목록 만들기</h1>
+
+    <form>
+        <h3 id="hello"></h3>
+        <input type="text" id="name" placeholder="이름을 입력하세요">
+        <button id="nameBtn" type="button">확인</button>
+    </form>
+    <form>
+        <input type="text" id="todo" placeholder="당신의 할 일을 적으세요">
+        <button id="todoBtn" type="button">확인</button>
+    </form>
+    <ul id="list">
+
+    </ul>
+
+    <script>
+        let hello = document.getElementById("hello");
+        let name = document.getElementById("name");
+        let nameBtn = document.getElementById("nameBtn");
+
+        nameBtn.addEventListener("click", function() {
+            hello.innerHTML = name.value + "님 안녕하세요";
+            name.style.display = "none";
+            nameBtn.style.display = "none";
+        });
+
+        let todo = document.getElementById("todo");
+        let todoBtn = document.getElementById("todoBtn");
+        let list = document.getElementById("list")
+
+        todoBtn.addEventListener("click", function() {
+            let text = todo.value;
+            todo.value = "";
+            let li = document.createElement("li");
+            li.innerHTML = text;
+
+            let upBtn = document.createElement("button");
+            upBtn.innerHTML = "↑";
+            upBtn.className = "up-btn"
+            upBtn.addEventListener("click", function() {
+                let current = upBtn.parentElement;
+                let prev = current.previousElementSibling;
+                if(prev === null) {
+                    alert("첫번째 행입니다.");
+                    return false;
+                }
+                list.insertBefore(current, prev);
+            });
+
+            let downBtn = document.createElement("button");
+            downBtn.innerHTML = "↓";
+            downBtn.className = "down-btn"
+            downBtn.addEventListener("click", function() {
+                let current = downBtn.parentElement;
+                let next = current.nextElementSibling;
+                if(next === null) {
+                    alert("마지막 행입니다.");
+                    return false;
+                }
+                list.insertBefore(next, current);
+            });
+
+            let delBtn = document.createElement("button");
+            delBtn.innerHTML = "삭제";
+            delBtn.className = "del-btn"
+            delBtn.addEventListener("click", function() {
+                let li = delBtn.parentElement;
+                list.removeChild(li);
+            });
+
+            li.appendChild(upBtn);
+            li.appendChild(downBtn);
+            li.appendChild(delBtn);
+
+            list.appendChild(li);
+        });
+
+    </script>
+    
+</body>
+</html>

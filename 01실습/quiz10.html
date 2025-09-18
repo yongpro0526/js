@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+
+        // let x2 = parseInt(prompt("약수의 합을 구할 수을 입력해주세요."));
+        // let y2 = 0;
+        // for(let z2 = 1; z2 <= x2; z2++) {
+        //     if(x2 % z2 === 0) {
+        //         y2 += z;
+        //     }
+        // }
+        // document.write(`${x2}의 약수의 합은 ${y2}이다.`);
+
+        // 1. x의 값을 입력 받는다.
+        // 2. 최종적인 합을 구할 y를 선언한다.
+        // 3. z가 1부터 시작하여, x가 될때까지 1씩 더하게 한다.
+        // 4. x / z 가 0이 될때 마다, 즉, x의 약수가 나올 때 마다, if {}의 값을 실행하게 한다.
+        // 5. if {}안에 y += z; 를 넣어서, x의 약수가 나올 때 마다 x의 약수를 z에 넣고 더한다.
+
+
+        // 어떤 수 x를 입력 받아서, x까지의 소수의 합계를 구합니다.
+        // ex) x = 12, 소수 = 2, 3, 5, 7, 11, 합 = 28
+        // 힌트: 바깥 반복문 - 입력받은 수까지 회전, 내부반복문 - 해당 수가 소수인지 판별
+        // 소수의 판별은 약수의 개수가 2개인지 체크
+
+        let x = parseInt(prompt("소수의 합을 구할 수를 입력해주세요."));
+        let y = 0;
+        for(let z = 2; z <= x; z++) {
+            for(let a = 1; z % a !== 0; a++) {
+                if(x === z) {
+                    y += z;
+                }
+            }
+        }
+        document.write(`${x}까지의 소수의 합은 ${y}이다.`);
+
+        // x = 기준이 되는 변수 
+        // y = 소수들이 더해질 변수
+        // z = 소수가 될 변수
+        // a = z를 나눠서 z가 소수인지 판별 할 변수
+        // 1. x에 값을 입력
+        // 2. 최종적인 합을 구할 y를 선언.
+        // 3. z를 2부터 x가 될때 까지 계속 커지도록 반복.
+        // 4. a를 1부터 z / a 의 나머지가 0이 아니게 될때까지 커지도록 반복.
+        // 5. 
+
+        let num = parseInt(prompt("수를 입력하세요"));
+        let cnt = 0; // 약수의 개수를 누적할 변수
+        let sum = 0; // 소수의 합을 누적할 변수
+
+        // 디버깅
+        debugger; // 중단점
+
+        for(let i = 1; i <= num; i++) {
+            // i는 소수인가? -> i의 약수의 개수가 2개인가?
+            cnt = 0;
+            for(let j = 1; j <= i; j++) {
+                if(i % j === 0) {
+                    cnt++;
+                }
+            }
+            if(cnt === 2) {
+                sum += i;
+            }
+        }
+        document.write(`입력받은 ${num}까지의 수 중에 소수의 합은 ${sum}입니다.`);
+
+
+    </script>
+    
+</body>
+</html>

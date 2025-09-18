@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>사칙연산 게임</h1>
+    <p>덧셈 문제를 풀어보세요!</p>
+    
+    <script>
+
+        //
+
+        // 0을 입력하면 프로그램이 종료됩니다.
+        // 정답 횟수, 오답 횟수를 화면에 출력해주세요.
+
+        let correct = 0;
+        let wrong = 0;
+        while (true) {
+            let x = parseInt(Math.random() * 100);
+            let y = parseInt(Math.random() * 100);
+            let answer = prompt(`${x} + ${y} = ? 끝내려면 0 입력.`);
+            let result = parseInt(answer);
+            if(result === x + y) {
+                alert("정답");
+                correct++;
+            }
+            else if(result === 0) {
+                break;
+            }
+            else{
+                alert("오답");
+                wrong++;
+            }
+        }
+        document.write(`정답: ${correct}개, 오답: ${wrong}개`)
+        
+    </script>
+    
+</body>
+</html>

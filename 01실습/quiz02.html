@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        // 1. 사용자에게 바구니의 크기를 입력 받습니다.
+        // 2. 그 다음에 사과의 개수를 입력 받습니다.
+        // 3. 사과의 개수와, 필요한 바구니의 개수를 출력해주면 됩니다.
+
+        let capacity = prompt("바구니의 크기");
+        let apple = prompt("사과의 개수");
+        let x = parseInt( apple / capacity ); // (apple / capacity)의 소수점 아래 값을 버린 정수. 
+        let y = apple % capacity === 0 ? 0 : 1; // (apple / capacity)에서 나머지가 0이 아닐 경우 바구니 하나 추가.
+        let basket = x + y
+        document.write("바구니의 크기: " + capacity + ", 사과의 개수: " + apple + ", 필요한 바구니의 개수: " + basket);
+    </script>
+    
+</body>
+</html> 

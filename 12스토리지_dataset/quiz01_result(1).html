@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h3>최신 관심 목록</h3>
+    <div class="cartList">
+
+    </div>
+
+    <script>
+        // 값이 있는지 확인
+        let cartList = document.querySelector(".cartList");
+
+        function getStorage() {
+            if(localStorage.getItem("like") !== null) {
+                let arr = JSON.parse(localStorage.getItem("like"));
+
+                arr.forEach(function(item) {
+                    let img = document.createElement("img");
+                    img.src = item;
+                    img.style.width = "200px"
+                    cartList.appendChild(img);
+                });
+            }
+        }
+
+        (function() {
+            getStorage();
+        })();
+        
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+
+        // 무한 반복문
+        // 정확히 횟수를 모를때 사용.
+        // while(true) 문장으로 만들어서 사용.
+        // 특정 조건 하에 탈출하도록 처리.
+
+        while (true) {
+            let answer = prompt("3 x 6 = ?");
+
+            let result = parseInt(answer);
+
+            if(result === 18) {
+                alert("정답입니다!")
+                break;
+            }
+            else {
+                alert("오답입니다!")
+            }
+        }
+
+    </script>
+    
+</body>
+</html>

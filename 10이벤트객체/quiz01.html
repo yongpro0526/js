@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        li, ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        li {
+            display: inline-block;
+        }
+    </style>
+
+</head>
+<body>
+
+    <ul id="box">
+        <li><img src="img/1.jpg" alt="1" width="100"></li>
+        <li><img src="img/2.jpg" alt="2" width="100"></li>
+        <li><img src="img/3.jpg" alt="3" width="100"></li>
+        <li><img src="img/4.jpg" alt="4" width="100"></li>
+    </ul>
+
+    결과: (태그에 필요한 속성은 본인이 알아서 추가)
+    <div id="result">
+        <img src="img/1.jpg" alt="결과" width="200">
+    </div>
+
+    <script>
+        let box = document.getElementById("box");
+        let result = document.getElementById("result");
+        box.onclick = function(e) {
+            if(e.target.tagName !== "IMG") {
+                return;
+            }
+            result.innerHTML = '<img src="' + e.target.src + '" alt="결과" width="200">';
+        }
+    </script>
+    
+</body>
+</html>
