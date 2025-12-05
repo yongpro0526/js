@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h3>헬로월드!</h3>
+
+    <button type="button" id="getBtn">REST API로 get요청</button>
+    <button type="button" id="postBtn">REST API로 post요청</button>
+    <hr>
+    <button type="button" id="quiz01">퀴즈1</button>
+    <button type="button" id="quiz02">퀴즈2</button>
+
+    <script>
+        let getBtn = document.getElementById("getBtn");
+        getBtn.onclick = function() {
+            let name = "홍길동";
+            let age = 20;
+            // get요청
+            fetch("http://localhost:8181/chap06/getData3/" + name + "/" + age)
+            .then(function(response) {
+                return response.text();
+            }).then(function(data) {
+                console.log(data);    
+            })
+        };
+
+        let postBtn = document.getElementById("postBtn");
+        postBtn.onclick = function() {
+            fetch("http://localhost:8181/chap06/getJSON", {
+                method : "POST", // 요청타입
+                headers : {
+                    "Content-Type" : "application/json" // 필수로 보내는 데이터에 대한 타입을 반드시 넣어줘야함.
+                },
+                body : JSON.stringify({
+                    num : 1,
+                    name : "홍길동",
+                    age : 20
+                }) // 보낼 데이터
+            }).then(function(response) {
+                return response.text();
+            }).then(function(data) {
+                console.log(data);
+            })
+        };
+
+        let quiz01 = document.getElementById("quiz01");
+        quiz01.onclick = function() {
+            let num = 1234;
+            let name = "가나다";
+            fetch("http://localhost:8181/chap06/api/v1/getData?num=" + num + "&name=" + name)
+            .then(function(response) {
+                return response.json();
+            }).then(function(data) {
+                console.log(data);
+            })
+        };
+
+        let quiz02 = document.getElementById("quiz02");
+        quiz02.onclick = function() {
+
+            // JS에서 폼 데이터를 보낼 때
+            let form = new URLSearchParams();
+            form.append("num", "1");
+            form.append("first", "클라이언트에서 보낸 값")
+            fetch("http://localhost:8181/chap06/api/v1/getInfo", {
+                method : "POST",
+                headers : {
+                    "Content-Type" : "application/x-www-form-urlencoded"
+                },
+                body : form
+            }).then(function(response) {
+                return response.text();
+            }).then(function(data) {
+                console.log(data);
+            })
+        };
+    </script>
+    
+</body>
+</html>

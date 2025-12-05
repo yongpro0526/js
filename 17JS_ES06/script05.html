@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 화살표 함수...
+        // const func = function() {};
+        const func = () => {};
+
+        // 1. 코드가 한 줄이면 {}, return 생략 가능
+        // const some = (a, b) => {
+        //     return a + b;
+        // };
+        const some = (a, b) => a + b;
+
+        // 2. 매개변수가 한개면 () 생략가능
+        // const some2 = (a) => a + 10;;
+        const some2 = a => a + 10;
+
+        // 3. 객체를 return 할 때는 ()로 묶는다.
+        // const some3 = (name, age) => {
+        //     return {name: name, age: age};
+        // }
+        const some3 = (name, age) => ({name: name, age: age});
+
+        console.log(some3("홍길동", 20));
+
+        // 화살표함수 예시
+        setInterval(function() {}, 1000);
+        setInterval(() => {}, 1000);
+
+        [1, 2, 3].forEach(function(item) {});
+        [1, 2, 3].forEach(item => {});
+
+        태그.addEventListener("click", function(e) {});
+        태그.addEventListener("click", e => {});
+
+        fetch("url").then(function(response) {});
+        fetch("url").then(response => {});
+
+    </script>
+    
+</body>
+</html>

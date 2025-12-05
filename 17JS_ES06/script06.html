@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        // 원래 js에는 클래스가 없었지만, ES6에서 추가됨
+        class Person {
+            // 멤버변수, 메서드, 생성자
+            // 멤버변수 - 키워드를 사용하지 않습니다.
+            name = "홍길동";
+            age = 20;
+            state = [];
+
+            // 생성자 - js에서 생성자는 한 개만 만들 수 있음.
+            constructor(name) {
+                this.name = name;
+            }
+
+            // 메서드
+            some = (a) => {
+                return "함수호출";
+            }
+        }
+
+        // 객체 생성
+        let p1 = new Person();
+        let p2 = new Person("이순신");
+        console.log(p1);
+        console.log(p2);
+        console.log(p2.age); // .으로 접근함
+        console.log(p2.name);
+        console.log(p2.some());
+
+        /////////////////////////////////////////////////////////////////////////
+        // 클래스의 상속
+        class Shape {
+            area = 10;
+
+            constructor(area) {
+                this.area = area;
+            }
+
+            getInfo = () => {
+                return area * area;
+            }
+        }
+
+        class Rectangle extends Shape {
+            // 부모 클래스에 생성자가 정의되어 있다면, 생성자 연결
+            constructor(area) {
+                super(area);
+            }
+            // 부모님이 가지고 있는 멤버를 전부 상속 받음.
+            // 메서드 오버라이딩
+            getInfo = () => {
+                return "오버라이딩 된 메서드";
+            }
+
+            // getter, setter
+            get getArea() {}
+            set setArea(area) {
+                this.area = area;
+            }
+        }
+
+        let rect = new Rectangle("사각형");
+        console.log(rect.getInfo()); // 오버라이딩된 메서드가 실행됨
+
+    </script>
+    
+</body>
+</html>

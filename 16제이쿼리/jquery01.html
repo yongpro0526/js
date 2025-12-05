@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- 제이쿼리 링크 -->
+    <script src="js/jquery-3.7.1.min.js"></script>
+
+</head>
+<body>
+
+    <input type="text" id="apple" value="홍길동">
+    <input type="text" id="melon" value="이순신">
+    <input type="hidden" value="김밥나라">
+
+    <script>
+        let a1 = document.getElementById("apple");
+        console.log(a1); // 엘리먼트 반환
+
+        let a2 = $("#apple");
+        console.log(a2); // 제이커리 init객체 반환
+
+        let a3 = $("#apple")[0];
+        console.log(a3); // 엘리먼트 반환
+
+        // value값 얻기
+        let val1 = $("#apple").val();
+
+        // value값 바꾸기
+        $("#apple").val("바꿀 값");
+        $("input[type=hidden]").val("바꿀 값 2")
+        
+    </script>
+    
+</body>
+</html>

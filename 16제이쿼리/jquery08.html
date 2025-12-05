@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="js/jquery-3.7.1.min.js"></script>
+
+    <script>
+        // 이벤트가 html보다 위에 있어서 실행이 안 될때.
+        // js - window.onload = 이벤트 또는 DomLoaded이벤트
+        // jquery - 도큐먼트 레디 - 화면로드가 끝난후에 동작됨. 여러번 사용해도 됨.
+        $(document).ready(function() {
+            $("#btn").click(function() {
+                alert("1111");
+            });
+        });
+    </script>
+
+</head>
+<body>
+
+    <button type="button" id="btn">도큐먼트레디</button>
+    
+</body>
+</html>

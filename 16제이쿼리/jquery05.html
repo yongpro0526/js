@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .btn.active{color: red;}
+    </style>
+
+    <script src="js/jquery-3.7.1.min.js"></script>
+
+</head>
+<body>
+
+    <button type="button" id="btn" class="btn">버튼</button>
+
+    <script>
+        // // 클래스에 active 추가
+        // $("#btn").addClass("active");
+        // // 클래스에 active 삭제
+        // $("#btn").removeClass("active");
+        // 토글
+        $("#btn").click(function(e) {
+            $(e.target).toggleClass("active");
+        })
+
+        // 확인
+        console.log($("#btn").hasClass("btn")); // btn클래스가 있으면 true, 없으면 false
+        
+    </script>
+
+    <hr>
+
+    <button type="button" id="demo">버튼</button>
+    <div class="item">
+        클래스 추가하기
+    </div>
+
+    <script>
+        // demo 버튼 클릭하면 item 태그의 active클래스를 토글 형식으로 동작
+        $("#demo").click(function() {
+            $(".item").toggleClass("active");
+        })
+    </script>
+    
+</body>
+</html>

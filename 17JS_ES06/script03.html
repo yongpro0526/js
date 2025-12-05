@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 구조분해 할당 = Destructuring Assignment
+
+        let arr = ["홍", "김", "박"];
+        // let a = arr[0];
+        // let b = arr[1];
+        // let c = arr[2];
+        let [a, b, c] = arr;
+
+        // 값을 선택적으로 꺼내기
+        let [n1, , n3] = arr; // n1 = "홍", n3 = "박"
+        let [a1, ...x] = arr; // a1 = "홍", x = ["김", "박"]
+
+        // 객체에서 구조분해 할당
+        let obj = {name: "홍길동", age: 20, address: "서울시"};
+        obj["name", "age", "address"];
+        let {name, age, address} = obj;
+
+        // 다른 이름으로 변경해서 할당
+        let {name: n, age: m, address: k} = obj;
+        console.log(n, m, k); // "홍길동", 20, "서울시"
+
+        //
+        let list = [
+            {id: 1, name: "홍길동", age: 20, info: {addr: "서울시"}},
+            {id: 2, name: "김철수", age: 30, info: {addr: "부산시"}},
+        ]
+        // list 배열에서 0번째 객체의 info 안에 addr 값을 구조분해 할당.
+
+        let [{info: {addr}}] = list;
+        console.log(addr);
+        
+
+
+    </script>
+    
+</body>
+</html>
